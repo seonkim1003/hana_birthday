@@ -114,7 +114,7 @@ window.App = (function () {
       setImage("note1-photo", C.images.eatingFull);
       setImage("note2-photo", C.images.texting);
       setImage("final-photo", C.images.final);
-      setImage("chat-avatar", C.images.eatingFull);
+      setImage("chat-avatar", C.images.seonho);
     }
 
     if (C.gameEating) {

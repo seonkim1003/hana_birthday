@@ -31,12 +31,14 @@ window.CONTENT = {
     celineName: "Celine",
     seonhoName: "Seonho",
     wrongMessages: [
-      "[[ wrong message 1 — something playful about why Celine is not it ]]",
-      "[[ wrong message 2 ]]",
-      "[[ wrong message 3 ]]",
-      "[[ wrong message 4 — feel free to add more to this array ]]",
+      "wrong button bestie, try again 💀",
+      "error 404: correct answer not found (hint: it's not Celine)",
+      "celine who?? we love her but. no.",
+      "bro really thought Celine was the answer LOL no",
+      "the audacity. pick again.",
+      "that's a swing and a miss, champ",
     ],
-    correctMessage: "[[ correct! something celebratory here ]]",
+    correctMessage: "YESSS there it is, the correct answer 🎉",
   },
 
   gameEating: {
