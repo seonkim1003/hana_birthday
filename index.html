@@ -13,81 +13,130 @@
 
 <div class="confetti" aria-hidden="true"></div>
 
-<main>
+<button id="sound-toggle" class="sound-toggle" type="button" aria-label="Turn music on">
+  <svg viewBox="0 0 48 48" class="sound-toggle-svg" aria-hidden="true">
+    <rect x="5" y="12" width="38" height="26" rx="9" class="boombox-body"></rect>
+    <circle cx="16" cy="25" r="7" class="boombox-speaker"></circle>
+    <circle cx="32" cy="25" r="7" class="boombox-speaker"></circle>
+    <circle cx="16" cy="25" r="2.6" class="boombox-speaker-dot"></circle>
+    <circle cx="32" cy="25" r="2.6" class="boombox-speaker-dot"></circle>
+    <rect x="17" y="7" width="14" height="6" rx="3" class="boombox-handle"></rect>
+    <path class="note note-1" d="M37 9c0-1 .9-1.8 2-1.8s2 .8 2 1.8-0.9 1.8-2 1.8-2-.8-2-1.8z M40.5 9V3.5l2-0.6V7" />
+    <path class="note note-2" d="M5.5 6c0-.8.7-1.4 1.6-1.4s1.6.6 1.6 1.4-.7 1.4-1.6 1.4-1.6-.6-1.6-1.4z M8.2 6V2l1.6-.5v3" />
+  </svg>
+</button>
 
-  <section class="hero">
-    <p class="eyebrow">a little something for</p>
-    <h1>Hana<span class="dot">.</span></h1>
-    <p class="subtitle">my sister, my person, the one who always texts first.</p>
-    <div class="scroll-hint">scroll down ↓</div>
-  </section>
 
-  <section class="letter">
-    <div class="paper">
-      <p class="greeting">Hana,</p>
-      <p>
-        It's your birthday, and I just wanted to make you something that actually
-        says what I mean — not a text, not an emoji, just <em>this.</em>
-      </p>
-      <p>
-        You're not just a friend to me. Somewhere along the way you became the
-        sister I never had — the one who checks in for no reason, who remembers
-        the small things, who shows up in the group chat (and my actual chat)
-        more faithfully than almost anyone in my life. Every "hey how's your
-        day" text from you lands different. It always has.
-      </p>
-      <p>
-        I don't say this enough, so let me say it plainly today: thank you for
-        being so consistently, ridiculously you — warm, funny, a little chaotic
-        in the best way, and somehow always there. I'm so grateful for every
-        burger run, every group photo where someone's making a weird face,
-        every late night text that didn't need a reason.
-      </p>
-      <p>
-        Happy birthday to one of my favorite people on this earth. I hope this
-        year gives you back even a fraction of what you give everyone around you.
-      </p>
+<main id="app">
+
+  <!-- 1. START -->
+  <section class="screen screen-start" data-screen="start" data-active="true">
+    <div class="start-bg" aria-hidden="true">
+      <div class="drift drift-1"></div>
+      <div class="drift drift-2"></div>
+    </div>
+    <div class="start-content">
+      <p class="eyebrow">a little something for</p>
+      <h1 id="start-title" class="caveat-title"></h1>
+      <p id="start-subtitle" class="subtitle"></p>
+      <button id="start-button" class="btn btn-glow" type="button"></button>
     </div>
   </section>
 
-  <section class="gallery">
-    <h2>some of my favorite moments with you</h2>
-    <div class="polaroid-grid">
+  <!-- 2. CHOOSE -->
+  <section class="screen screen-choose" data-screen="choose">
+    <h2 id="choose-prompt" class="caveat-title small"></h2>
+    <div class="choose-cards">
+      <button id="card-celine" class="choice-card" type="button">
+        <img id="img-celine" alt="Celine" class="ph-img">
+        <span id="name-celine" class="choice-name"></span>
+      </button>
+      <button id="card-seonho" class="choice-card" type="button">
+        <img id="img-seonho" alt="Seonho" class="ph-img">
+        <span id="name-seonho" class="choice-name"></span>
+      </button>
+    </div>
+    <p id="choose-feedback" class="choose-feedback" aria-live="polite"></p>
+  </section>
 
-      <figure class="polaroid p1">
-        <img src="images/photo1.jpg" alt="Group selfie holding the Bethel Evangelism banner">
-        <figcaption>the banner crew</figcaption>
-      </figure>
+  <!-- 3a. EATING GAME -->
+  <section class="screen screen-game-eating" data-screen="game-eating">
+    <p id="eating-intro" class="game-intro"></p>
+    <div class="eating-field" id="eating-field">
+      <div class="eating-mosaic" id="eating-mosaic">
+        <img id="eating-photo" class="ph-img" alt="Memory photo">
+        <div class="mosaic-tiles" id="mosaic-tiles"></div>
+      </div>
+      <div class="burger-counter" id="burger-counter" aria-live="polite">0 / 12</div>
+      <div class="sprite" id="player-sprite"></div>
+    </div>
+    <div class="dpad" id="dpad" aria-hidden="true">
+      <button class="dpad-btn dpad-up" data-dir="up" type="button">▲</button>
+      <button class="dpad-btn dpad-left" data-dir="left" type="button">◀</button>
+      <button class="dpad-btn dpad-right" data-dir="right" type="button">▶</button>
+      <button class="dpad-btn dpad-down" data-dir="down" type="button">▼</button>
+    </div>
+    <button id="eating-next" class="btn" type="button" hidden>Next</button>
+  </section>
 
-      <figure class="polaroid p2">
-        <img src="images/photo2.jpg" alt="Group photo making silly faces together">
-        <figcaption>chaos, as usual</figcaption>
-      </figure>
-
-      <figure class="polaroid p3">
-        <img src="images/photo3.jpg" alt="At In-N-Out together">
-        <figcaption>In-N-Out run</figcaption>
-      </figure>
-
-      <figure class="polaroid p4">
-        <img src="images/photo4.jpg" alt="Group photo outside in the sun">
-        <figcaption>sunny day squad</figcaption>
-      </figure>
-
-      <figure class="polaroid p5">
-        <img src="images/photo5.jpg" alt="Another group selfie with the banner">
-        <figcaption>one more for the road</figcaption>
-      </figure>
-
+  <!-- 3b. MEMORY NOTE 1 -->
+  <section class="screen screen-note" data-screen="memory-note-1">
+    <figure class="note-photo">
+      <img id="note1-photo" class="ph-img" alt="Memory #1">
+    </figure>
+    <div class="note-card">
+      <h3 id="note1-title" class="caveat-title small"></h3>
+      <p id="note1-text"></p>
+      <button id="note1-continue" class="btn" type="button">Continue</button>
     </div>
   </section>
 
-  <section class="closing">
-    <p class="big-thanks">thank you for always texting first.</p>
-    <p class="signoff">happy birthday, hana 🎉<br>love, <strong>Seonho Cutie Kim</strong></p>
+  <!-- 4a. TYPING GAME -->
+  <section class="screen screen-game-typing" data-screen="game-typing">
+    <p id="typing-intro" class="game-intro"></p>
+    <div class="chat-header">
+      <img id="chat-avatar" class="chat-avatar ph-img" alt="Hana">
+      <div class="chat-header-info">
+        <span class="chat-name">Hana</span>
+        <span class="chat-status"><span class="status-dot"></span>online</span>
+      </div>
+    </div>
+    <div class="chat-thread" id="chat-thread"></div>
+    <div class="typing-target" id="typing-target" aria-hidden="true"></div>
+    <input id="typing-input" class="typing-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type the sentence shown above">
+  </section>
+
+  <!-- 4b. MEMORY NOTE 2 -->
+  <section class="screen screen-note screen-note-2" data-screen="memory-note-2">
+    <figure class="note-photo">
+      <img id="note2-photo" class="ph-img" alt="Memory #2">
+    </figure>
+    <div class="note-card">
+      <h3 id="note2-title" class="caveat-title small"></h3>
+      <p id="note2-text"></p>
+      <button id="note2-continue" class="btn" type="button">Continue</button>
+    </div>
+  </section>
+
+  <!-- 5. FINAL -->
+  <section class="screen screen-final" data-screen="final">
+    <div class="final-card">
+      <figure class="final-photo">
+        <img id="final-photo" class="ph-img" alt="Final photo">
+      </figure>
+      <div id="final-message" class="final-message"></div>
+      <p id="final-signoff" class="final-signoff caveat-title small"></p>
+    </div>
+    <button id="play-again" class="btn" type="button">Play Again</button>
   </section>
 
 </main>
 
+<script src="content.js"></script>
+<script src="music.js"></script>
+<script src="effects.js"></script>
+<script src="app.js"></script>
+<script src="game-eating.js"></script>
+<script src="game-typing.js"></script>
 </body>
 </html>
