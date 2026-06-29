@@ -1,0 +1,243 @@
+:root {
+  --cream: #fdf6ec;
+  --paper: #fffaf2;
+  --blush: #f4b8a8;
+  --terracotta: #d97b5f;
+  --brown: #6b4f3f;
+  --ink: #4a3a30;
+  --tape: #f6e8c8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+main { position: relative; z-index: 1; }
+
+/* ---------- HERO ---------- */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: radial-gradient(circle at 50% 20%, #fff1e0 0%, var(--cream) 70%);
+}
+
+.eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(4rem, 16vw, 9rem);
+  margin: 0;
+  color: var(--brown);
+  line-height: 1;
+}
+
+.hero h1 .dot {
+  color: var(--terracotta);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  max-width: 32ch;
+  margin-top: 0.5rem;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.scroll-hint {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--terracotta);
+  opacity: 0.7;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ---------- LETTER ---------- */
+
+.letter {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.paper {
+  background: var(--paper);
+  max-width: 620px;
+  width: 100%;
+  padding: clamp(1.8rem, 5vw, 3.5rem);
+  border-radius: 6px;
+  box-shadow: 0 18px 40px -10px rgba(107, 79, 63, 0.18), 0 2px 6px rgba(107, 79, 63, 0.08);
+  transform: rotate(-0.4deg);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.paper .greeting {
+  font-family: 'Caveat', cursive;
+  font-size: 2.2rem;
+  color: var(--terracotta);
+  margin: 0 0 1rem;
+}
+
+.paper p {
+  margin: 0 0 1.1rem;
+}
+
+.paper p:last-child { margin-bottom: 0; }
+
+.paper em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery {
+  padding: 2rem 1.5rem 6rem;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--brown);
+  margin-bottom: 3rem;
+}
+
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 0.9rem 0.9rem 1.2rem;
+  width: 230px;
+  box-shadow: 0 10px 25px -8px rgba(74, 58, 48, 0.3);
+  border-radius: 2px;
+  margin: 0;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 18px 35px -10px rgba(74, 58, 48, 0.4);
+  z-index: 5;
+}
+
+.polaroid::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 70px;
+  height: 26px;
+  background: var(--tape);
+  opacity: 0.85;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(135deg, #f4dccb, #f4b8a8);
+}
+
+.polaroid figcaption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--brown);
+  text-align: center;
+  margin-top: 0.7rem;
+}
+
+.p1 { transform: rotate(-3deg); }
+.p2 { transform: rotate(2deg); }
+.p3 { transform: rotate(-1.5deg); }
+.p4 { transform: rotate(3deg); }
+.p5 { transform: rotate(-2.5deg); }
+
+/* ---------- CLOSING ---------- */
+
+.closing {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(180deg, var(--cream) 0%, #fbe8da 100%);
+}
+
+.big-thanks {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: var(--terracotta);
+  max-width: 20ch;
+  margin: 0 0 2rem;
+}
+
+.signoff {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.signoff strong {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--brown);
+}
+
+/* ---------- CONFETTI (subtle, static dots) ---------- */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(var(--blush) 2px, transparent 2px),
+    radial-gradient(var(--terracotta) 2px, transparent 2px);
+  background-size: 90px 90px, 130px 130px;
+  background-position: 0 0, 45px 60px;
+  opacity: 0.12;
+}
+
+@media (max-width: 480px) {
+  .polaroid { width: 80vw; max-width: 260px; }
+}
